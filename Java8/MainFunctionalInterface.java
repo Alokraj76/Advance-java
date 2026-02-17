@@ -17,5 +17,7 @@ public class MainFunctionalInterface
         };
         a1.calculate();
 //        System.out.println("Sum= "+a1.calculate());
+//        Add a2= (int n1,int n2)->System.out.println("Sum="+(n1+n2));
+//            a1.calculate(12,43);
     }
 }
