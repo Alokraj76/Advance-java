@@ -15,6 +15,7 @@ class Calculator
         return n1-n2;
     }
     static int mul(int n1,int n2)
+
     {
         return n1*n2;
     }
@@ -30,10 +31,10 @@ public class MethodRefMain
     public static void main(String[] args)
     {
         Calculator cal = new Calculator();
-//        System.out.println("Subtraction= "+cal.sub(14,6));
-//        MyCalc c1 = cal::sub; // method referencing
+        System.out.println("Subtraction= "+cal.sub(14,6));
+        MyCalc c1 = cal::sub; // method referencing
 //        System.out.println("sub ="+c1.cal(100,12));
-//        MyCalc c2 = Calculator::mul; // method referencing
+        MyCalc c2 = Calculator::mul; // method referencing
 //        int m1 = c2.cal(100,25);
 //        System.out.println("Multiply= "+m1);
 
