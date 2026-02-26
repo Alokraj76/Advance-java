@@ -11,6 +11,7 @@ final class Circle extends Shape
 {
     public void print()
     {
+        System.out.println("circle extend sealed Shape class");
         System.out.println("Circle");
     }
 }
