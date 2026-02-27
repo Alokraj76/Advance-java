@@ -4,7 +4,7 @@ sealed class Shape permits Circle,Rectangle //sealed class allow multiple inheri
 {
     public void print()
     {
-        System.out.println("Shape permits");
+        System.out.println("Shape permits to circle and rectangle only");
     }
 }
 final class Circle extends Shape
