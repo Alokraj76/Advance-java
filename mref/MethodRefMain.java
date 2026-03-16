@@ -15,7 +15,6 @@ class Calculator
         return n1-n2;
     }
     static int mul(int n1,int n2)
-
     {
         return n1*n2;
     }
@@ -23,7 +22,7 @@ class Calculator
 @FunctionalInterface
 interface MyCalc
 {
-//    int cal(int n1,int n2);// function return type and function parameter must be same to pass the reference (It is Compulsory).
+//   int cal(int n1,int n2);// function return type and function parameter must be same to pass the reference (It is Compulsory).
     void cal(int n1,int n2);
 }
 public class MethodRefMain
