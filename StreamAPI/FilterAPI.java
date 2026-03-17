@@ -23,13 +23,13 @@ public class FilterAPI
         li.stream().filter(n->n>60).forEach((item)-> System.out.println(item+" ")); //filter in the list to print only basis of filter
 
         //String type
-        ArrayList<String> li1 = new ArrayList<>();
-        li1.add("alok");
-        li1.addAll(List.of("raj","AR","harsh"));
-        li1.stream().forEach((item)->System.out.print(item+" "));
-        System.out.println();
-        li1.stream().forEach(System.out::println); // always create new object // terminal operation.
-        System.out.println("count= "+li1.stream().count()); // count used only
+//        ArrayList<String> li1 = new ArrayList<>();
+//        li1.add("alok");
+//        li1.addAll(List.of("raj","AR","harsh"));
+//        li1.stream().forEach((item)->System.out.print(item+" "));
+//        System.out.println();
+//        li1.stream().forEach(System.out::println); // always create new object // terminal operation.
+//        System.out.println("count= "+li1.stream().count()); // count used only
     }
 
 }
