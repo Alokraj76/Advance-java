@@ -21,5 +21,10 @@ public class LongestString
         System.out.println(total);
         int total1 = list1.stream().reduce(0,(a,b)->a+(b%10)+(b-(b%10))/10);
         System.out.println(total1);
+
+
+        int value = 123456;
+        int rel = String.valueOf(value).chars().map(c->c-'0').reduce(0,(a,b)->a+b);
+        System.out.println(rel);
     }
 }
