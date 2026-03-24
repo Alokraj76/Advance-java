@@ -3,7 +3,7 @@ import java.util.*;
 public class StringReduce
 {
     static void main() {
-        List<String> list = Arrays.asList("java","Stream","API","Reduce");
+        List<String> list = Arrays.asList("java", "Streamsort","API","Reduce");
         String finalist = list.stream().reduce("",(a,b)->a+" "+b);
         System.out.println(finalist);
 
