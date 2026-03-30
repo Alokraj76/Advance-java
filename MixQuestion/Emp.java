@@ -1,5 +1,7 @@
 package MixQuestion;
 import java.util.*;
+import java.util.stream.Collectors;
+
 class Employee {
     int id;
     String name;
@@ -48,17 +50,36 @@ public class Emp
                 new Employee(108, "Amit", 50000, 25, "IT")
         ));
 //        Optional<Employee> lis = empList.stream().min((a,b)->(int)((a.getSalary() -b.getSalary())));
-        Optional<Employee> lis = empList.stream().min((a,b)->Double.compare(a.salary,b.salary));
-        lis.ifPresent(System.out::println);
+//        Optional<Employee> lis = empList.stream().min((a,b)->Double.compare(a.salary,b.salary));
+//        lis.ifPresent(System.out::println);
+//
+//        Employee result = empList.stream().min(Comparator.comparing(Employee::getSalary)).get();
+//        System.out.println(result);
+//
+//        Optional<Employee> lis1 = empList.stream().max((a,b)->(int)((a.getSalary() -b.getSalary())));
+//        lis1.ifPresent(System.out::println);
+//
+//        Optional<Employee> lis2 = empList.stream().min((a,b)->a.getAge()-b.getAge());
+//        lis2.ifPresent(System.out::println);
+//
+//        Optional<Employee> lis3 = empList.stream().max((a,b)->a.getAge()-b.getAge());
+//        lis3.ifPresent(System.out::println);
 
-        Optional<Employee> lis1 = empList.stream().max((a,b)->(int)((a.getSalary() -b.getSalary())));
-        lis1.ifPresent(System.out::println);
+//        List<Employee> lis1 = empList.stream().sorted((a,b)->(Double) a.getSalary()-(Double)b.getSalary()).skip(1);
+//        Employee ndhigh = empList.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).skip(1).findFirst().get();
+//        System.out.println(ndhigh);
+//
+//        Employee ndlow = empList.stream().sorted(Comparator.comparing(Employee::getSalary)).skip(1).findFirst().get();
+//        System.out.println(ndlow);
 
-        Optional<Employee> lis2 = empList.stream().min((a,b)->a.getAge()-b.getAge());
-        lis2.ifPresent(System.out::println);
+//        List<Employee> threeHigh = empList.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()).limit(3).toList();
+//        System.out.println(threeHigh);
+//
+//        List<Employee> threeLow = empList.stream().sorted(Comparator.comparing(Employee::getSalary)).limit(3).toList();
+//        System.out.println(threeLow);
 
-        Optional<Employee> lis3 = empList.stream().max((a,b)->a.getAge()-b.getAge());
-        lis3.ifPresent(System.out::println);
+//        empList.stream().collect(Collectors.toMap(Employee::getSalary,e->e,(e1,e2)->e1)).values().forEach(System.out::println);
+        empList.stream().collect(Collectors.toMap(Employee::getName,e->e,(e1,e2)->e1)).values().forEach(System.out::println);
 
     }
 }
