@@ -79,7 +79,29 @@ public class Emp
 //        System.out.println(threeLow);
 
 //        empList.stream().collect(Collectors.toMap(Employee::getSalary,e->e,(e1,e2)->e1)).values().forEach(System.out::println);
-        empList.stream().collect(Collectors.toMap(Employee::getName,e->e,(e1,e2)->e1)).values().forEach(System.out::println);
+//        empList.stream().collect(Collectors.toMap(Employee::getName,e->e,(e1,e2)->e1)).values().forEach(System.out::println);
 
+//        Employee minimum = empList.stream().filter(n->n.getDepartment().equals("IT")).min(Comparator.comparing(Employee::getSalary)).get();
+//        System.out.println(minimum);
+//
+//        Employee maximum = empList.stream().filter(n->n.getDepartment().equals("HR")).max(Comparator.comparing(Employee::getSalary)).get();
+//        System.out.println(maximum);
+
+//        Employee age = empList.stream().filter(n->n.getAge()>25).min(Comparator.comparing(Employee::getSalary)).get();
+//        System.out.println(age);
+//
+//        Employee age2 = empList.stream().filter(n->n.getAge()<30).max(Comparator.comparing(Employee::getSalary)).get();
+//        System.out.println(age2);
+
+//        empList.stream().limit(5).forEach(System.out::println);
+
+//        empList.stream().skip(3).forEach(System.out::println);
+
+//        empList.stream().sorted(Comparator.comparing(Employee::getAge)).limit(2).forEach(System.out::println);
+//      empList.stream().sorted(Comparator.comparing(Employee::getAge)).skip(2).limit(2).forEach(System.out::println);
+
+//        empList.stream().filter(n->n.getDepartment().equals("IT")).sorted(Comparator.comparing(Employee::getSalary).reversed()).limit(3).forEach(System.out::println);
+
+        empList.stream().collect(Collectors.toMap(Employee::getName,e->e,(e1,e2)->e1)).values().stream().limit(5).forEach(System.out::println);
     }
 }
