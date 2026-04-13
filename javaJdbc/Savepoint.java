@@ -1,4 +1,5 @@
 package javaJdbc;
 
-public class Savepoint {
+public class Savepoint
+{
 }

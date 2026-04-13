@@ -1,4 +1,6 @@
 package javaJdbc;
+import com.mysql.cj.protocol.Resultset;
+
 import java.sql.*;
 import java.sql.DriverManager;
 
@@ -19,14 +21,42 @@ public class EmpMain
             System.out.println("Driver is ready");
 
             Connection con =  DriverManager.getConnection(host,username,password);
-            System.out.println("Host is ready");
-            Statement smt = con.createStatement( ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-
-
-            smt.execute(create_table);
-            System.out.println("Table is ready");
-            ResultSet rs = smt.executeQuery("Select *from employee");
+            Statement smt = con.createStatement();
+            con.setAutoCommit(false);
+            int rowAffected = smt.executeUpdate("""
+                    insert into employee(name,dept,salary) values('Emp7','Account',40000)""");
+            if(rowAffected > 0)
+            {
+                Savepoint sp1 = (Savepoint) con.setSavepoint("inserted");
+            }
+            con.setAutoCommit(true);
+//            CallableStatement cst = con.prepareCall("{call getEmp()}");
+//            ResultSet rs = cst.executeQuery();
             System.out.println("ID\tName\tDepartment\tSalary");
+//            while(rs.next())
+//            {
+//                long salary = rs.getLong("Salary");
+////                if(salary<=40000)
+////                {
+////                    rs.updateDouble("Salary",salary*1.1);
+////                    rs.updateRow();
+////                }
+//
+//                int id = rs.getInt("id");
+//                String name = rs.getString("name");
+//                String dept = rs.getString("dept");
+//                salary = rs.getLong("salary");
+//                System.out.println(String.format(" %d\t%s\t%s\t\t%d", id, name, dept, salary));
+//
+//            }
+            System.out.println("Host is ready");
+//            Statement smt = con.createStatement( ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+
+
+//            smt.execute(create_table);
+//            System.out.println("Table is ready");
+//            ResultSet rs = smt.executeQuery("Select *from employee");
+//            System.out.println("ID\tName\tDepartment\tSalary");
 //            while(rs.next())
 //            {
 //                rs.moveToInsertRow();
@@ -35,22 +65,22 @@ public class EmpMain
 //                rs.updateDouble("Salary",800000);
 //                rs.insertRow();
 //            }
-            while(rs.next())
-            {
-                long salary = rs.getLong("Salary");
-//                if(salary<=40000)
-//                {
-//                    rs.updateDouble("Salary",salary*1.1);
-//                    rs.updateRow();
-//                }
-
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String dept = rs.getString("dept");
-                salary = rs.getLong("salary");
-                    System.out.println(String.format(" %d\t%s\t%s\t\t%d", id, name, dept, salary));
-
-            }
+//            while(rs.next())
+//            {
+//                long salary = rs.getLong("Salary");
+////                if(salary<=40000)
+////                {
+////                    rs.updateDouble("Salary",salary*1.1);
+////                    rs.updateRow();
+////                }
+//
+//                int id = rs.getInt("id");
+//                String name = rs.getString("name");
+//                String dept = rs.getString("dept");
+//                salary = rs.getLong("salary");
+//                    System.out.println(String.format(" %d\t%s\t%s\t\t%d", id, name, dept, salary));
+//
+//            }
 //            int record = smt.executeUpdate("""
 //insert into employee (name,dept,salary) values('Emp5','Sales',30000)""");
 //           int rowAffected= smt.executeUpdate("""
@@ -61,7 +91,7 @@ public class EmpMain
 //           }
 //           else
 //           System.out.println("Record is not inserted");
-            rs.close();
+//            rs.close();
             smt.close();
             con.close();
         }
